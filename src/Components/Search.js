@@ -10,7 +10,7 @@ export default function Search(props) {
   const getSearchResults = (searchField) =>
     axios(`https://images-api.nasa.gov/search?q=${searchField}`).then((res) => {
       const data = res.data.collection.items.map((i) => ({
-        id: i.data[0].nasa_id,
+        nasaId: i.data[0].nasa_id,
         title: i.data[0].title,
         date: i.data[0].date_created,
         description: i.data[0].description,
