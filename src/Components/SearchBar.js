@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchBar() {
+export default function SearchBar(props) {
   const classes = useStyles();
 
   const [searchField, setSearchField] = useState('');
@@ -57,15 +57,7 @@ export default function SearchBar() {
   };
 
   const onButtonSubmit = () => {
-    axios(`https://images-api.nasa.gov/search?q=${searchField}`).then((res) => {
-      const data = res.data.collection.items.map((i) => ({
-        title: i.data[0].title,
-        date: i.data[0].date_created,
-        description: i.data[0].description,
-        img: i.links[0].href,
-      }));
-      console.log(data);
-    });
+    props.getSearchResults(searchField);
   };
 
   return (

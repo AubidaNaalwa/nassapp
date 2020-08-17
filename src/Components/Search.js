@@ -1,13 +1,28 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import SearchBar from './SearchBar';
 import MediaCard from './MediaCard';
 
-export default function Search() {
+export default function Search(props) {
   const [searchResults, setSearchResults] = useState([]);
 
+  const getSearchResults = (searchField) =>
+    axios(`https://images-api.nasa.gov/search?q=${searchField}`).then((res) => {
+      const data = res.data.collection.items.map((i) => ({
+        id: i.data[0].nasa_id,
+        title: i.data[0].title,
+        date: i.data[0].date_created,
+        description: i.data[0].description,
+        img: i.links[0].href,
+      }));
+      setSearchResults(data);
+    });
   return (
     <div>
-      <SearchBar />
+      <SearchBar getSearchResults={getSearchResults} />
+      {searchResults.map((r) => (
+        <MediaCard key={r.id} data={r} />
+      ))}
     </div>
   );
 }
