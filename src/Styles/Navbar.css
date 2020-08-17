@@ -1,5 +1,11 @@
+.nav-container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
 .top-nav {
-  /* position: fixed; */
   background-color: #111f4d;
   width: 100%;
   display: flex;
@@ -16,5 +22,5 @@
 }
 
 .nav-item img {
-  height: 70px;
+  height: 50px;
 }

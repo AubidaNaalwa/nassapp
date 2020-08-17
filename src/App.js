@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import axios from 'axios';
 
-import './Styles/App.css';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import Search from './Components/Search';
 import Favorites from './Components/Favorites';
+import './Styles/App.css';
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
@@ -58,38 +58,36 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
-      <>
-        <Route path="/" exact render={({ match }) => <Home match={match} />} />
-        <Route
-          path="/search"
-          exact
-          render={({ match }) => (
-            <Search
-              toggleFavorite={toggleFavorite}
-              searchResults={searchResults}
-              getSearchResults={getSearchResults}
-              match={match}
-            />
-          )}
-        />
-        <Route
-          path="/favorites"
-          exact
-          render={({ match }) => (
-            <Favorites
-              toggleFavorite={toggleFavorite}
-              favoritesList={favoritesList}
-              match={match}
-            />
-          )}
-        />
-        <Route
-          path="/favorites/:id"
-          exact
-          render={({ match }) => <Favorites match={match} />}
-        />
-      </>
+      <Navbar getSearchResults={getSearchResults} />
+      <Route path="/" exact render={({ match }) => <Home match={match} />} />
+      <Route
+        path="/search"
+        exact
+        render={({ match }) => (
+          <Search
+            toggleFavorite={toggleFavorite}
+            searchResults={searchResults}
+            getSearchResults={getSearchResults}
+            match={match}
+          />
+        )}
+      />
+      <Route
+        path="/favorites"
+        exact
+        render={({ match }) => (
+          <Favorites
+            toggleFavorite={toggleFavorite}
+            favoritesList={favoritesList}
+            match={match}
+          />
+        )}
+      />
+      <Route
+        path="/favorites/:id"
+        exact
+        render={({ match }) => <Favorites match={match} />}
+      />
     </Router>
   );
 }

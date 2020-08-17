@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -8,8 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-import ThumbDownIcon from '@material-ui/icons/ThumbDown';
+import FlareIcon from '@material-ui/icons/Flare';
+import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import '../Styles/MediaCard.css';
 
 const useStyles = makeStyles({
@@ -29,7 +28,7 @@ export default function MediaCard(props) {
         <CardMedia
           component="img"
           alt={data.title}
-          height="140"
+          height={data.id === 'home' ? '350' : '150'}
           image={data.img}
           title={data.title}
         />
@@ -37,20 +36,28 @@ export default function MediaCard(props) {
           <Typography gutterBottom variant="h5" component="h2">
             {data.title}
           </Typography>
-          {/* <Typography variant="body2" color="textSecondary" component="p">
-            {data.description}
-          </Typography> */}
+          {data.id === 'home' && (
+            <Typography variant="body2" color="textSecondary" component="p">
+              {data.description}
+            </Typography>
+          )}
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button
-          size="small"
-          color="primary"
-          onClick={() => toggleFavorite(data)}
-        >
-          {data.isFavorite ? <ThumbDownIcon /> : <ThumbUpAltIcon />}
-        </Button>
-      </CardActions>
+      {data.id !== 'home' && (
+        <CardActions>
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => toggleFavorite(data)}
+          >
+            {data.isFavorite ? (
+              <RemoveCircleOutlineIcon color="secondary" />
+            ) : (
+              <FlareIcon color="primary" />
+            )}
+          </Button>
+        </CardActions>
+      )}
     </Card>
   );
 }

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+
 const useStyles = makeStyles((theme) => ({
   fit: {
     width: '100%',
@@ -48,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchBar(props) {
   const classes = useStyles();
-  
+
   const [searchField, setSearchField] = useState('');
 
   const onInputChange = (event) => {
@@ -75,7 +78,9 @@ export default function SearchBar(props) {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-          <SearchIcon onClick={onButtonSubmit} />
+          <Link to="/search">
+            <SearchIcon onClick={onButtonSubmit} />
+          </Link>
         </Toolbar>
       </AppBar>
     </div>
