@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MediaCard from './MediaCard';
-
+import '../Styles/Home.css'
 export default function Home(props) {
   const [imageOfTheDay, seImageOfTheDay] = useState({});
 
@@ -21,7 +21,7 @@ export default function Home(props) {
   }, []);
 
   return (
-    <div>
+    <div className='home-container'>
       <MediaCard key={imageOfTheDay.id} data={imageOfTheDay} />
     </div>
   );

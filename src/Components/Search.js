@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import MediaCard from './MediaCard';
+import '../Styles/Search.css';
 
 export default function Search(props) {
   const [searchResults, setSearchResults] = useState([]);
@@ -20,9 +21,11 @@ export default function Search(props) {
   return (
     <div>
       <SearchBar getSearchResults={getSearchResults} />
-      {searchResults.map((r) => (
-        <MediaCard key={r.id} data={r} />
-      ))}
+      <div className="results-container">
+        {searchResults.map((r) => (
+          <MediaCard key={r.id} data={r} />
+        ))}
+      </div>
     </div>
   );
 }
