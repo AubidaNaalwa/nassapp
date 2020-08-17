@@ -1,0 +1,19 @@
+.top-nav {
+  background-color: #111f4d;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-item {
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.logo {
+  margin-left: auto;
+}
+
+.nav-item img {
+  height: 70px;
+}
