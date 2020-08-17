@@ -60,6 +60,7 @@ function App() {
   return (
     <Router>
       <Navbar getSearchResults={getSearchResults} />
+
       <Route path="/" exact render={({ match }) => <Home match={match} />} />
       <Route
         path="/search"

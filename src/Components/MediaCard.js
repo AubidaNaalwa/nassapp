@@ -12,6 +12,8 @@ import Typography from '@material-ui/core/Typography';
 import FlareIcon from '@material-ui/icons/Flare';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import '../Styles/MediaCard.css';
+import SnackBar from './SnackBar';
+import SnackBarRemove from './SnackBarRemove';
 
 const useStyles = makeStyles({
   root: {
@@ -23,6 +25,10 @@ export default function MediaCard(props) {
   const classes = useStyles();
 
   const { data, toggleFavorite } = props;
+
+  const handleClick = () => {
+    toggleFavorite(data);
+  };
 
   return (
     <Card className={`${classes.root} card-container`}>
@@ -49,16 +55,8 @@ export default function MediaCard(props) {
       </CardActionArea>
       {data.id !== 'big' && (
         <CardActions>
-          <Button
-            size="small"
-            color="primary"
-            onClick={() => toggleFavorite(data)}
-          >
-            {data.isFavorite ? (
-              <RemoveCircleOutlineIcon color="secondary" />
-            ) : (
-              <FlareIcon color="primary" />
-            )}
+          <Button size="small" color="primary" onClick={handleClick}>
+            {data.isFavorite ? <SnackBarRemove /> : <SnackBar />}
           </Button>
         </CardActions>
       )}
