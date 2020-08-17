@@ -8,6 +8,7 @@ const favoriteSchema = new Schema({
   date: String,
   description: String,
   img: String,
+  isFavorite: Boolean,
 });
 
 const Favorite = mongoose.model('favorite', favoriteSchema);

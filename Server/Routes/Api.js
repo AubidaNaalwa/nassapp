@@ -19,18 +19,18 @@ router.get('/favorites', (req, res) => {
 });
 
 router.post('/favorites', (req, res) => {
-  const favorite = req.body;
   const newFavorite = new Favorite({
-    favorite,
+    ...req.body,
+    isFavorite: true,
   });
   newFavorite.save().then((t) => res.send(t));
 });
 
 router.delete('/favorites/:id', (req, res) => {
-  const id = req.params.id;
-  Favorite.findByIdAndRemove(id).exec((err, data) => {
-    ////
-  });
+  const { id } = req.params;
+  Favorite.findByIdAndDelete(id, (err) =>
+    err ? res.send(err) : res.send('Successful deletion')
+  );
 });
 
 module.exports = router;

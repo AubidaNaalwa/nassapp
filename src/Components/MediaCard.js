@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -19,7 +20,9 @@ const useStyles = makeStyles({
 
 export default function MediaCard(props) {
   const classes = useStyles();
-  const { data } = props;
+
+  const { data, toggleFavorite } = props;
+
   return (
     <Card className={`${classes.root} card-container`}>
       <CardActionArea>
@@ -34,14 +37,18 @@ export default function MediaCard(props) {
           <Typography gutterBottom variant="h5" component="h2">
             {data.title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          {/* <Typography variant="body2" color="textSecondary" component="p">
             {data.description}
-          </Typography>
+          </Typography> */}
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          <ThumbUpAltIcon />
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => toggleFavorite(data)}
+        >
+          {data.isFavorite ? <ThumbDownIcon /> : <ThumbUpAltIcon />}
         </Button>
       </CardActions>
     </Card>

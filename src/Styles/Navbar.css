@@ -1,4 +1,5 @@
 .top-nav {
+  /* position: fixed; */
   background-color: #111f4d;
   width: 100%;
   display: flex;
