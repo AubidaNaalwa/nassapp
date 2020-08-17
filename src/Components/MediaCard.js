@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -25,25 +27,27 @@ export default function MediaCard(props) {
   return (
     <Card className={`${classes.root} card-container`}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          alt={data.title}
-          height={data.id === 'home' ? '350' : '150'}
-          image={data.img}
-          title={data.title}
-        />
+        <Link to={data.isFavorite ? `/favorites/${data._id}` : '#'}>
+          <CardMedia
+            component="img"
+            alt={data.title}
+            height={data.id === 'big' ? '350' : '150'}
+            image={data.img}
+            title={data.title}
+          />
+        </Link>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {data.title}
           </Typography>
-          {data.id === 'home' && (
+          {data.id === 'big' && (
             <Typography variant="body2" color="textSecondary" component="p">
               {data.description}
             </Typography>
           )}
         </CardContent>
       </CardActionArea>
-      {data.id !== 'home' && (
+      {data.id !== 'big' && (
         <CardActions>
           <Button
             size="small"

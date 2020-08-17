@@ -6,6 +6,7 @@ import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import Search from './Components/Search';
 import Favorites from './Components/Favorites';
+import Media from './Components/Media';
 import './Styles/App.css';
 
 function App() {
@@ -86,7 +87,12 @@ function App() {
       <Route
         path="/favorites/:id"
         exact
-        render={({ match }) => <Favorites match={match} />}
+        render={({ match }) => (
+          <Media
+            match={match}
+            data={favoritesList.find((m) => m._id === match.params.id)}
+          />
+        )}
       />
     </Router>
   );

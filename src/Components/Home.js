@@ -13,7 +13,7 @@ export default function Home(props) {
     axios(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`).then(
       (res) => {
         const data = {
-          id: 'home',
+          id: 'big',
           title: res.data.title,
           date: res.data.date,
           description: res.data.explanation,
@@ -25,7 +25,7 @@ export default function Home(props) {
   }, []);
 
   return (
-    <div className="home-container">
+    <div className="big-media-container">
       <MediaCard key={imageOfTheDay.id} data={imageOfTheDay} />
     </div>
   );
