@@ -34,6 +34,8 @@ Display images and information from the Nasa Api. the user can search for inform
 
 - Fix notification snack-bars
 - add screenshots
+- handle errors on server
+- handle errors on ui
 
 ---
 
