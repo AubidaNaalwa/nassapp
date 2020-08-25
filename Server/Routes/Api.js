@@ -1,7 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
+const path = require('path');
+
 const Favorite = require('../Models/Favorite');
+
+router.use(express.static(path.join(__dirname, 'build')));
 
 const alterSearch = [
   {
@@ -66,5 +70,8 @@ router.delete('/favorites/:id', (req, res) => {
   );
 });
 
+router.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 module.exports = router;
