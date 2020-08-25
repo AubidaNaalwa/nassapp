@@ -43,9 +43,9 @@ Display images and information from the Nasa Api. the user can search for inform
 
 ### To Fix
 
-- handling non pic format in the POD
-- handling loading results better
-- handling better no results
+- handling non pic format in the POD ✔
+- handling loading results better ✔
+- handling better no results ✔
 - when going to media page and back to favorites the card stay big
 - fix snackBars
 - merge favorites and search component to 1 results component
