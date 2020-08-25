@@ -4,7 +4,7 @@ import axios from 'axios';
 import MediaCard from './MediaCard';
 import '../Styles/Home.css';
 
-export default function Home(props) {
+export default function Home() {
   const [imageOfTheDay, setImageOfTheDay] = useState({});
 
   useEffect(() => {

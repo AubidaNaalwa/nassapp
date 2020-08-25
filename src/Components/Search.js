@@ -8,7 +8,7 @@ export default function Search(props) {
 
   return (
     <div className="results-container">
-      {!searchResults.length && <h1>Loading...</h1>}
+      {!searchResults.length && <h1>Searching...</h1>}
       {searchResults.map((r) => (
         <MediaCard toggleFavorite={toggleFavorite} key={r.nasaId} data={r} />
       ))}

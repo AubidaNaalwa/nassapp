@@ -17,7 +17,7 @@ router.use(function (req, res, next) {
 
 const alterSearch = [
   {
-    nasaId: 0,
+    id: 'big',
     title: 'No images found',
     date: '',
     description: 'Alf',
@@ -32,7 +32,6 @@ router.get('/search/:searchField', (req, res) => {
     `https://images-api.nasa.gov/search?q=${searchField}&media_type=image`
   ).then((response) => {
     const data = response.data.collection.items.map((i) => ({
-      nasaId: i.data[0].nasa_id,
       title: i.data[0].title,
       date: i.data[0].date_created,
       description: i.data[0].description,
