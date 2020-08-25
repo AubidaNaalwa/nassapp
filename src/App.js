@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 
-import Navbar from './Components/Navbar';
-import Home from './Components/Home';
-import Results from './Components/Results';
+import Navbar from './Components/Navbar.jsx';
+import Home from './Components/Home.jsx';
+import Results from './Components/Results.jsx';
 import Media from './Components/Media';
 import './Styles/App.css';
 
@@ -54,11 +54,11 @@ export default function App() {
   return (
     <Router>
       <Navbar getSearchResults={getSearchResults} />
-      <Route path="/" exact render={({ match }) => <Home match={match} />} />
+      <Route path="/" exact render={() => <Home />} />
       <Route
         path="/search"
         exact
-        render={({ match }) => (
+        render={() => (
           <Results
             toggleFavorite={toggleFavorite}
             results={searchResults}
@@ -69,7 +69,7 @@ export default function App() {
       <Route
         path="/favorites"
         exact
-        render={({ match }) => (
+        render={() => (
           <Results
             toggleFavorite={toggleFavorite}
             results={favoritesList}

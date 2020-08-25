@@ -10,8 +10,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import '../Styles/MediaCard.css';
-import SnackBar from './SnackBar';
-import SnackBarRemove from './SnackBarRemove';
+import Snack from './Snack.jsx';
 
 const useStyles = makeStyles({
   root: {
@@ -25,7 +24,7 @@ export default function MediaCard(props) {
   const { data, toggleFavorite } = props;
 
   const handleClick = () => {
-    toggleFavorite(data);
+    setTimeout(() => toggleFavorite(data), 1010);
   };
 
   return (
@@ -37,7 +36,6 @@ export default function MediaCard(props) {
             alt={data.title}
             height={data.id === 'big' ? '350' : '150'}
             image={data.img}
-            title={data.title}
           />
         </Link>
         <CardContent>
@@ -54,7 +52,11 @@ export default function MediaCard(props) {
       {data.id !== 'big' && (
         <CardActions>
           <Button size="small" color="primary" onClick={handleClick}>
-            {data.isFavorite ? <SnackBarRemove /> : <SnackBar />}
+            {data.isFavorite ? (
+              <Snack status="toRemove" />
+            ) : (
+              <Snack status="toAdd" />
+            )}
           </Button>
         </CardActions>
       )}

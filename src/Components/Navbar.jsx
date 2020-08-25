@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import SearchBar from './SearchBar';
+import SearchBar from './SearchBar.jsx';
 import FlareIcon from '@material-ui/icons/Flare';
 import '../Styles/Navbar.css';
 

@@ -8,10 +8,10 @@ export default function Results(props) {
   return (
     <div className="results-container">
       {!results.length && <h1>{noResultsMsg}</h1>}
-      {results.map((result) => (
+      {results.map((result,index) => (
         <MediaCard
           toggleFavorite={toggleFavorite}
-          key={result.nasaId}
+          key={index}
           data={result}
         />
       ))}
