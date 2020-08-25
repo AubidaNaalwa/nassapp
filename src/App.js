@@ -4,14 +4,16 @@ import axios from 'axios';
 
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
-import Search from './Components/Search';
-import Favorites from './Components/Favorites';
+import Results from './Components/Results';
 import Media from './Components/Media';
 import './Styles/App.css';
 
 export default function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [favoritesList, setFavoritesList] = useState([]);
+
+  const noFavoritesMsg = 'You have no favorites...';
+  const SearchLoadingMsg = 'Loading...';
 
   const getSearchResults = (searchField) => {
     axios.get(`http://localhost:4000/search/${searchField}`).then((res) => {
@@ -52,20 +54,15 @@ export default function App() {
   return (
     <Router>
       <Navbar getSearchResults={getSearchResults} />
-      <Route 
-        path="/" 
-        exact 
-        render={({ match }) =>( 
-        <Home match={match} />)}  
-        />
+      <Route path="/" exact render={({ match }) => <Home match={match} />} />
       <Route
         path="/search"
         exact
         render={({ match }) => (
-          <Search
+          <Results
             toggleFavorite={toggleFavorite}
-            searchResults={searchResults}
-            match={match}
+            results={searchResults}
+            noResultsMsg={SearchLoadingMsg}
           />
         )}
       />
@@ -73,10 +70,10 @@ export default function App() {
         path="/favorites"
         exact
         render={({ match }) => (
-          <Favorites
+          <Results
             toggleFavorite={toggleFavorite}
-            favoritesList={favoritesList}
-            match={match}
+            results={favoritesList}
+            noResultsMsg={noFavoritesMsg}
           />
         )}
       />
