@@ -13,19 +13,11 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [favoritesList, setFavoritesList] = useState([]);
 
-  const getSearchResults = (searchField) =>
-    axios(
-      `https://images-api.nasa.gov/search?q=${searchField}&media_type=image`
-    ).then((res) => {
-      const data = res.data.collection.items.map((i) => ({
-        nasaId: i.data[0].nasa_id,
-        title: i.data[0].title,
-        date: i.data[0].date_created,
-        description: i.data[0].description,
-        img: i.links[0].href,
-      }));
-      setSearchResults(data);
+  const getSearchResults = (searchField) => {
+    axios.get(`http://localhost:4000/search/${searchField}`).then((res) => {
+      setSearchResults(res.data);
     });
+  };
 
   const getFavorites = () =>
     axios.get('http://localhost:4000/favorites').then((res) => {

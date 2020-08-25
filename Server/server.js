@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const api = require('./Routes/Api');
+require('dotenv').config();
 
 const PORT = 4000;
 const app = express();
