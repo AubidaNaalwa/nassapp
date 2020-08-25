@@ -18,25 +18,25 @@ export default function App() {
   const SearchLoadingMsg = 'Loading...';
 
   const getSearchResults = (searchField) => {
-    axios.get(`http://localhost:4000/search/${searchField}`).then((res) => {
+    axios.get(`/search/${searchField}`).then((res) => {
       setSearchResults(res.data);
     });
   };
 
   const getFavorites = () =>
-    axios.get('http://localhost:4000/favorites').then((res) => {
+    axios.get('/favorites').then((res) => {
       setFavoritesList(res.data);
     });
 
   const addToFavorites = (data) => {
-    axios.post(`http://localhost:4000/favorites`, data).then((res) => {
+    axios.post(`/favorites`, data).then((res) => {
       data.isFavorite = !data.isFavorite;
       setFavoritesList([...favoritesList, res.data]);
     });
   };
 
   const removeFromFavorites = (data) => {
-    axios.delete(`http://localhost:4000/favorites/${data._id}`).then((res) => {
+    axios.delete(`/favorites/${data._id}`).then((res) => {
       res ? (data.isFavorite = !data.isFavorite) : alert('Error');
       const index = favoritesList.findIndex((r) => data._id === r._id);
       const updatedArr = [...favoritesList];
