@@ -1,5 +1,5 @@
 import React from 'react';
-import MediaCard from './MediaCard';
+import MediaCard from './MediaCard.jsx';
 import '../Styles/Home.css';
 
 export default function Media(match) {

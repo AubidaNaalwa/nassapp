@@ -5,10 +5,12 @@ import axios from 'axios';
 import Navbar from './Components/Navbar.jsx';
 import Home from './Components/Home.jsx';
 import Results from './Components/Results.jsx';
-import Media from './Components/Media';
+import Media from './Components/Media.jsx';
+
 import './Styles/App.css';
 
 export default function App() {
+ 
   const [searchResults, setSearchResults] = useState([]);
   const [favoritesList, setFavoritesList] = useState([]);
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import MediaCard from './MediaCard';
+import MediaCard from './MediaCard.jsx';
 import '../Styles/Search.css';
 
 export default function Results(props) {
