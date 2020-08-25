@@ -51,6 +51,7 @@ router.get('/pod', (req, res) => {
       date: response.data.date,
       description: response.data.explanation,
       img: response.data.url,
+      mediaType: response.data.media_type,
     };
     res.send(data);
   });

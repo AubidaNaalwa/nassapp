@@ -47,8 +47,9 @@ Display images and information from the Nasa Api. the user can search for inform
 - handling loading results better
 - handling better no results
 - when going to media page and back to favorites the card stay big
-- fix snackbars
+- fix snackBars
 - merge favorites and search component to 1 results component
+- merge media and media card component
 
 ### Screenshots
 

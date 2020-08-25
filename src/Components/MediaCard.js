@@ -33,7 +33,7 @@ export default function MediaCard(props) {
       <CardActionArea>
         <Link to={data.isFavorite ? `/favorites/${data._id}` : '#'}>
           <CardMedia
-            component="img"
+            component={data.mediaType === 'video' ? 'iframe' : 'img'}
             alt={data.title}
             height={data.id === 'big' ? '350' : '150'}
             image={data.img}
