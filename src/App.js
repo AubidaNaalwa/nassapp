@@ -9,7 +9,7 @@ import Favorites from './Components/Favorites';
 import Media from './Components/Media';
 import './Styles/App.css';
 
-function App() {
+export default function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [favoritesList, setFavoritesList] = useState([]);
 
@@ -52,7 +52,6 @@ function App() {
   return (
     <Router>
       <Navbar getSearchResults={getSearchResults} />
-
       <Route path="/" exact render={({ match }) => <Home match={match} />} />
       <Route
         path="/search"
@@ -61,7 +60,6 @@ function App() {
           <Search
             toggleFavorite={toggleFavorite}
             searchResults={searchResults}
-            getSearchResults={getSearchResults}
             match={match}
           />
         )}
@@ -90,5 +88,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;

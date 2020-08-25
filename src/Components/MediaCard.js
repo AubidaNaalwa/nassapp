@@ -9,8 +9,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-// import FlareIcon from '@material-ui/icons/Flare';
-// import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import '../Styles/MediaCard.css';
 import SnackBar from './SnackBar';
 import SnackBarRemove from './SnackBarRemove';

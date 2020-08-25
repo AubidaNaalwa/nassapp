@@ -15,6 +15,17 @@ router.use(function (req, res, next) {
 });
 //***********************************************//
 
+const alterSearch = [
+  {
+    nasaId: 0,
+    title: 'No images found',
+    date: '',
+    description: 'Alf',
+    img:
+      'https://cms.qz.com/wp-content/uploads/2018/08/alf-warner-bros-e1533220615626.jpg',
+  },
+];
+
 router.get('/search/:searchField', (req, res) => {
   const { searchField } = req.params;
   axios(
@@ -27,7 +38,7 @@ router.get('/search/:searchField', (req, res) => {
       description: i.data[0].description,
       img: i.links[0].href,
     }));
-    res.send(data);
+    res.send(data.length ? data : alterSearch);
   });
 });
 

@@ -7,13 +7,11 @@ export default function Search(props) {
   const { searchResults, toggleFavorite } = props;
 
   return (
-    <div>
-      <div className="results-container">
-      {!searchResults.length && <h1>Try searching for something else...</h1> }
-        {searchResults.map((r) => (
-          <MediaCard toggleFavorite={toggleFavorite} key={r.nasaId} data={r} />
-        ))}
-      </div>
+    <div className="results-container">
+      {!searchResults.length && <h1>Loading...</h1>}
+      {searchResults.map((r) => (
+        <MediaCard toggleFavorite={toggleFavorite} key={r.nasaId} data={r} />
+      ))}
     </div>
   );
 }
