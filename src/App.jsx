@@ -37,7 +37,7 @@ export default function App() {
 
   const removeFromFavorites = (data) => {
     axios.delete(`http://localhost:4000/favorites/${data._id}`).then((res) => {
-      res ? (data.isFavorite = !data.isFavorite) : alert('Error');
+      res ? (data.isFavorite = !data.isFavorite) : alert('Error'); // error handling
       const index = favoritesList.findIndex((r) => data._id === r._id);
       const updatedArr = [...favoritesList];
       updatedArr.splice(index, 1);
