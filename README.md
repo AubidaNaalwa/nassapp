@@ -1,6 +1,6 @@
 # NasApp 🛰🪐
 
-### a Fullstack Nasa info and images App.
+### A Fullstack Nasa info and images App.
 
 Display images and information from the Nasa Api. the user can search for information and save to DB his favorite results.
 Design for mobile.
@@ -32,14 +32,14 @@ Design for mobile.
 
 ### To Do
 
-- [] add users manager (signin/register)
-- [] Deploy to heroku
+-[] add users manager (signin/register)
+-[] Deploy to heroku
 
 ---
 
 ### To Fix
 
-- [] when going to media page and back to favorites the card stay big
+-[] when going to media page and back to favorites the card stay big
 
 ### Screenshots
 
