@@ -1,14 +1,15 @@
 # NasApp 🛰🪐
 
-### a Fullstack Nasa info and images.
+### a Fullstack Nasa info and images App.
 
 Display images and information from the Nasa Api. the user can search for information and save to DB his favorite results.
+Design for mobile.
 
 ---
 
 ## How to Use
 
-(assuming you have [nodejs](https://nodejs.org/en/) installed)
+(assuming you have [nodeJs](https://nodejs.org/en/) installed)
 
 1. clone the repo
 
@@ -16,31 +17,30 @@ Display images and information from the Nasa Api. the user can search for inform
 
 3. run `npm start`
 
-4. open `http://localhost:3000` in your browser.
-5. Enjoy 🚀
+4. open `http://localhost:3000` in your browser.🚀
 
 ---
 
 ### Tools and Libraries
 
-1. UI - React with Material UI
-2. Server - Node and Express
-3. DataBase - mongoDB with mongoose
-4. External api: [Nasa Api](https://api.nasa.gov/)
+- Client Side - React, Material UI
+- Server - NodeJs, Express
+- DataBase - MongoDB, Mongoose
+- External Services: [Nasa Api](https://api.nasa.gov/)
 
 ---
 
 ### To Do
 
-- add users manager (signin/register)
-- publish to heroku
+- [] add users manager (signin/register)
+- [] Deploy to heroku
 
 ---
 
 ### To Fix
 
-- when going to media page and back to favorites the card stay big
+- [] when going to media page and back to favorites the card stay big
 
 ### Screenshots
 
-## <p align="center"><img src="" width="300"> </p>
+## <p align="center"><img src="https://res.cloudinary.com/dnrxmm7a0/image/upload/v1600232259/projects/na1_ufaobj.jpg" width="300"> </p>
