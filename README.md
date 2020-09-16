@@ -32,14 +32,14 @@ Design for mobile.
 
 ### To Do
 
--[] add users manager (signin/register)
--[] Deploy to heroku
+- [ ] add users manager (signin/register)
+- [ ] Deploy to heroku
 
 ---
 
 ### To Fix
 
--[] when going to media page and back to favorites the card stay big
+- [ ] when going to media page and back to favorites the card stay big
 
 ### Screenshots
 
