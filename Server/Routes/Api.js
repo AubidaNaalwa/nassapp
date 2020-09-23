@@ -5,8 +5,6 @@ const path = require('path');
 
 const Favorite = require('../Models/Favorite');
 
-router.use(express.static(path.join(__dirname, 'build')));
-
 const alterSearch = [
   {
     id: 'big',
@@ -68,10 +66,6 @@ router.delete('/favorites/:id', (req, res) => {
   Favorite.findByIdAndDelete(id, (err) =>
     err ? res.send(err) : res.send('Successful deletion')
   );
-});
-
-router.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 module.exports = router;
