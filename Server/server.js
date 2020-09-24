@@ -20,7 +20,10 @@ const app = express();
 // });
 /* End of Development section  */
 
-mongoose.connect('mongodb://localhost/nassap', { useNewUrlParser: true });
+mongoose.connect(
+  `mongodb+srv://admin1:${process.env.db_pass}@cluster0.cblqn.mongodb.net/nasaAppDb?retryWrites=true&w=majority`,
+  { useNewUrlParser: true, useUnifiedTopology: true }
+);
 
 app.use(express.static(path.join(__dirname, '../build')));
 app.use(bodyParser.json());

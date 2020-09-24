@@ -8,7 +8,7 @@ export default function Home() {
   const [imageOfTheDay, setImageOfTheDay] = useState({});
 
   useEffect(() => {
-    axios.get(`/pod`).then((res) => {
+    axios.get(`${process.env.REACT_APP_SERVER_PORT}/pod`).then((res) => {
       setImageOfTheDay(res.data);
     });
   }, []);
