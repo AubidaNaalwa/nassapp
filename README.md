@@ -9,15 +9,29 @@ Design for mobile.
 
 ## How to Use
 
-(assuming you have [nodeJs](https://nodejs.org/en/) installed)
+#### [Enter The App](https://nassapp.herokuapp.com/)
 
-1. clone the repo
+Use the search-bar to look for interesting stuff from Nasa
 
-2. run `npm install` in your terminal
+- Click the ⭐ or the ➖ icon to add / remove photos to favorites.
+- To view your favorites click the icon at the top right
 
-3. run `npm start`
+---
 
-4. open `http://localhost:3000` in your browser.🚀
+## To Run on localhost
+
+1. uncomment `development` section in `server/Server.js`
+2. run
+
+```
+node server/Server.js
+```
+
+3. run
+
+```
+npm run-script develop
+```
 
 ---
 
@@ -33,7 +47,6 @@ Design for mobile.
 ### To Do
 
 - [ ] add users manager (signin/register)
-- [ ] Deploy to heroku
 
 ---
 
