@@ -64,7 +64,7 @@ router.post('/favorites', (req, res) => {
 router.delete('/favorites/:id', (req, res) => {
   const { id } = req.params;
   Favorite.findByIdAndDelete(id, (err) =>
-    err ? res.send(err) : res.send('Successful deletion')
+    err ? res.send(err) : res.send('Successful deletion') //send id instead a message
   );
 });
 
